@@ -1,0 +1,20 @@
+// VARIABLES
+$primary: #5f9ae0;
+$secondary: #ff7f50;
+$secondary-light: #ffa483;
+$white: #fff;
+$font: 'Montserrat', sans-serif;
+
+*,
+:after,
+:before {
+  padding: 0 1rem;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font;
+  line-height: 1.5;
+}
+

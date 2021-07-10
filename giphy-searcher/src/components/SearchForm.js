@@ -3,7 +3,10 @@ import React from 'react'
 const SearchForm = () => {
   return (
     <div>
-      <h1>Search Form</h1>
+     <form className="form-horizontal">
+      <input placeholder="Search" type="text" name="searchString" required />
+      <button type="submit">Search</button>
+    </form>
     </div>
   )
 }

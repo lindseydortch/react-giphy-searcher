@@ -1,5 +1,91 @@
+*,
+:after,
+:before {
+  padding: 0 1rem;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-  color: red;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+}
+
+button {
+  background-color: #5f9ae0;
+  border: 0;
+  color: #fff;
+  flex-grow: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+}
+
+button + button,
+input + button {
+  margin-left: 2px;
+}
+
+form {
+  padding: 1rem 0;
+}
+
+input {
+  background-color: #ffa483;
+  border: 2px solid #ff7f50;
+  color: #fff;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+}
+
+input::placeholder {
+  color: #fff;
+}
+
+input:focus,
+input:hover {
+  background-color: #ff7f50;
+  outline: 0;
+}
+
+.form-horizontal {
+  align-items: center;
+  display: flex;
+}
+
+@media (min-width: 600px) {
+  button + button,
+input + button {
+    margin-left: 1rem;
+  }
+}
+img {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  button + button,
+input + button {
+    margin-left: 1rem;
+  }
+
+  .gallery {
+    column-count: 2;
+  }
+}
+@media (min-width: 1000px) {
+  .gallery {
+    column-count: 3;
+  }
+}
+@media (min-width: 1400px) {
+  .gallery {
+    column-count: 4;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */
