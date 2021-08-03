@@ -1,0 +1,49 @@
+:root {
+  /* ... */
+  --muted: #a1a1a1;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Add a header declaration to the existing 
+media query for screen sizes of 1000px or more  */
+@media (min-width: 1000px) {
+  header {
+    align-items: center;
+    flex-direction: row;
+  }
+  /* ...  */
+}
+
+.brand {
+  align-items: center;
+  display: flex;
+  width: auto;
+}
+
+.brand img {
+  height: 2rem;
+  margin: 0 0.5rem 0 0;
+  width: auto;
+}
+
+.brand h1 {
+  font-weight: 200;
+  letter-spacing: -1px;
+  margin-right: 1rem;
+  white-space: nowrap;
+}

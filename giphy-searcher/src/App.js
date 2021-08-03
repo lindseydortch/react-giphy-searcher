@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import SearchForm from './components/SearchForm';
 import SearchResults from './components/SearchResults';
+import SearchHeader from './components/searchHeader';
 
 function App() {
   const searchOptions = {
@@ -13,30 +14,42 @@ function App() {
   }
 
   const [images, setImages] = useState([])
+  const [searchString, setSearchString] = useState('minions')
+  const [lastSearch, setLastSearch] = useState('')
 
   useEffect(() => {
-    getImages()
+    getImages(searchString)
   }, [])
 
-  function getImages() {
-    const searchString = 'minions';
-    /* Build a URL from the searchOptions object */
-    const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&q=${searchString}&limit=${searchOptions.limit}&offset=${searchOptions.offset}&rating=${searchOptions.rating}&lang=en`
-  
+  function getImages(searchString) {
+    const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&q=${searchString}&limit=${searchOptions.limit}&offset=${searchOptions.offset}&rating=${searchOptions.rating}&lang=en`;
+
     fetch(url)
       .then(response => response.json())
       .then(response => {
         setImages(response.data);
+        // Set the lastSearch to the searchString value
+        setLastSearch(searchString);
+        // Set the searchString in state to an empty string
+        setSearchString('');
       })
       .catch(console.error);
   }
 
+  function handleChange(event) {
+    setSearchString(event.target.value);
+  }
   
+  function handleSubmit(event) {
+    event.preventDefault();
+    // Don't forget to pass the searchString to getImages
+    getImages(searchString);
+  }
 
   return (
     <div className="App">
-      <h1>Giphy Search</h1>
-      <SearchForm />
+      <SearchHeader lastSearch={lastSearch} />
+      <SearchForm handleChange={handleChange} handleSubmit={handleSubmit} searchString={searchString} />
       <SearchResults images={images}/>
     </div>
   );
